@@ -52,3 +52,4 @@ WindowsFormsApplication2/obj/Debug/WindowsFormsApplication2.csproj.GenerateResou
 WindowsFormsApplication2/obj/Debug/WindowsFormsApplication2.csproj.FileListAbsolute.txt
 WindowsFormsApplication2/obj/Debug/Interop.Shell32.dll
 WindowsFormsApplication2/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.exe
