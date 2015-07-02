@@ -10,15 +10,3 @@ c:\users\andrey\documents\visual studio 2013\Projects\WindowsFormsApplication2\W
 c:\users\andrey\documents\visual studio 2013\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Form2.resources
 C:\Users\Andrey\documents\visual studio 2013\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\Interop.Shell32.dll
 C:\Users\Andrey\documents\visual studio 2013\Projects\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.csproj.ResolveComReference.cache
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe.config
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\obj\Debug\Interop.Shell32.dll
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.csproj.ResolveComReference.cache
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.exe
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.pdb
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.pdb
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.csprojResolveAssemblyReference.cache
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Form1.resources
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Form2.resources
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Properties.Resources.resources
-C:\Users\Роберт\Documents\Visual Studio 2013\Projects\min_lan\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.csproj.GenerateResource.Cache
