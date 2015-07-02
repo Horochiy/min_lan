@@ -1,7 +1,6 @@
 ﻿using Shell32;
 using System;
 using System.ComponentModel;
-
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
@@ -14,15 +13,15 @@ namespace WindowsFormsApplication2
     public partial class Form1 : Form
     {
         [DllImport("gdi32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern int RemoveFontResourceEx(string lpszFilename, int fl, IntPtr pdv);
+        public static extern int removeFontResourceEx(string lpszFilename, int fl, IntPtr pdv);
         static string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         string path = appData + @"\.minecraft\savedata.inc";
         Form2 secondForm = new Form2();
         int mem;
         string game = ".minecraft";
-        string Server = "ForgeOptiFine 1.6.4";
-        const string IP = "127.0.0.1";
-        string UpdateSite = "http://getfile.esy.es/minecraft";
+        string server = "ForgeOptiFine 1.6.4";
+        const string ip = "127.0.0.1";
+        string updateSite = "http://getfile.esy.es/minecraft";
 
         public static void unzip(string f1, string f2)
         {
@@ -32,6 +31,7 @@ namespace WindowsFormsApplication2
 
             ds.CopyHere(df.Items(), 20);
         }
+
         private void checknative(string dir, string lib)
         {
             try
@@ -50,6 +50,7 @@ namespace WindowsFormsApplication2
 
             }
         }
+
         private void natives(string natives, string vers)
         {
             string waylib = appData + "\\" + game + "\\libraries\\";
@@ -73,7 +74,6 @@ namespace WindowsFormsApplication2
                     checkfile(url, file);
                     checknative(vers, dir + "lwjgl-platform-2.9.0-natives-windows");
                     break;
-
             }
         }
 
@@ -82,21 +82,18 @@ namespace WindowsFormsApplication2
 
             string url, way = appData + "\\" + game + "\\";
 
-            chekdir(way + "versions\\" + Server + @"\");
-            string f = way + "versions\\" + Server + @"\" + Server + @".jar";
-            url = UpdateSite + "/" + Server + "/ForgeOptiFine 1.6.4.jar";
+            chekdir(way + "versions\\" + server + @"\");
+            string f = way + "versions\\" + server + @"\" + server + @".jar";
+            url = updateSite + "/" + server + "/ForgeOptiFine 1.6.4.jar";
             checkfile(url, f);
-
-
-
         }
 
         private void checkfile(string url, string file)
         {
-            //   if (!System.IO.File.Exists(file))
+            // if (!System.IO.File.Exists(file))
             // {
-            webclient(url, file);
-            //}
+                webclient(url, file);
+            // }
         }
         private void webclient(string url, string path)
         {
@@ -107,7 +104,10 @@ namespace WindowsFormsApplication2
                 Downloader.DownloadFileAsync(new Uri(url), path);
                 while (Downloader.IsBusy) { Application.DoEvents(); }
             }
-            catch (Exception e) { MessageBox.Show(e.ToString()); }
+            catch (Exception e) 
+            { 
+                MessageBox.Show(e.ToString()); 
+            }
         }
 
         int firstbar;
@@ -116,8 +116,8 @@ namespace WindowsFormsApplication2
             if (firstbar > 2)
                 progressBar1.Value = progressBar1.Value + 10;
             firstbar++;
-
         }
+
         private void chekdir(string dir)
         {
             if (!System.IO.Directory.Exists(dir))
@@ -126,6 +126,7 @@ namespace WindowsFormsApplication2
                 direct.Create();
             }
         }
+
         private void lib(string library)
         {
             string dir;
@@ -134,8 +135,6 @@ namespace WindowsFormsApplication2
 
             switch (library)
             {
-
-
                 case "jopt-simple-4.5":
                     dir = waylib + "net\\sf\\jopt-simple\\jopt-simple\\4.5\\";
                     chekdir(dir);
@@ -253,9 +252,7 @@ namespace WindowsFormsApplication2
                     url = "https://libraries.minecraft.net/org/lwjgl/lwjgl/lwjgl_util/2.9.0/lwjgl_util-2.9.0.jar";
                     checkfile(url, file);
                     break;
-
             }
-
         }
 
         public static string Base64Encode(string plainText)
@@ -263,22 +260,18 @@ namespace WindowsFormsApplication2
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
             return System.Convert.ToBase64String(plainTextBytes);
         }
+
         public static string Base64Decode(string base64EncodedData)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
-
         private void ReadFile()
         {
-
-
             try
             {
-
                 string[] lines = System.IO.File.ReadAllLines(path);
-
 
                 for (int i = 0; i < 3; i++)
                     lines[i] = Base64Decode(lines[i]);
@@ -291,22 +284,17 @@ namespace WindowsFormsApplication2
             {
                 mem = 1024;
             }
-
         }
-        private void VriteFile()
+        private void WriteFile()
         {
-
-
             try
             {
-
-                if (secondForm.mem != 0)
+                if (secondForm.memory != 0)
                 {
-                    mem = secondForm.mem;
+                    mem = secondForm.memory;
                 }
 
                 Encoding enc = Encoding.UTF32;
-
 
                 string[] lines = new string[3];
 
@@ -316,53 +304,17 @@ namespace WindowsFormsApplication2
                 lines[1] = Base64Encode(textBox2.Text);
                 lines[2] = Base64Encode(textBox1.Text);
                 System.IO.File.WriteAllLines(path, lines);
-
-
             }
             catch (Exception ex)
             {
                 System.IO.File.Create(path);
-                VriteFile();
+                WriteFile();
             }
-
-
-
         }
-
 
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -372,14 +324,11 @@ namespace WindowsFormsApplication2
             pfc.AddFontFile(appData + "\\" + game + "\\" + "creep2.ttf");
             textBox1.Font = new Font(pfc.Families[0], 16, FontStyle.Regular);
             comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.FlatAppearance.BorderSize = 0;
             //    checkfile(@"http://getfile.esy.es/minecraft/ForgeOptiFine 1.6.4/ForgeOptiFine 1.6.4.jar", @"C:\Users\vladislav\AppData\Roaming\.minecraft\versions\ForgeOptiFine 1.6.4\ForgeOptiFine 1.6.4.jar");
             //    checkfile(@"http://getfile.esy.es/minecraft/ForgeOptiFine 1.6.4/ForgeOptiFine 1.6.4.jar", @"%appdata%\.minecraft\versions\ForgeOptiFine 1.6.4\ForgeOptiFine 1.6.4.jar");
 
             webBrowser1.Navigate("http://dementia.esy.es/");
             ReadFile();
-            
         }
 
         public void MoveVindow(object sender, MouseEventArgs e)
@@ -389,24 +338,9 @@ namespace WindowsFormsApplication2
             this.WndProc(ref m);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             Process.Start("http://");
-        }
-
-
-
-
-
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            secondForm.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -433,7 +367,7 @@ namespace WindowsFormsApplication2
         {
             progressBar1.Visible = true;
             string way = "%appdata%\\" + game + "\\";
-            VriteFile();
+            WriteFile();
             progressBar1.Value = 0;
             progressBar1.Maximum = 190;
             //проверка файлов
@@ -458,13 +392,14 @@ namespace WindowsFormsApplication2
             natives("lwjgl-platform-2.9.0-natives-windows", way + "versions\\1.6.4\\natives");
             string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-            Process.Start("javaw", @" -Xmx" + mem + "M  -Djava.library.path=" + "\"" + @"%appdata%\.minecraft\versions\ForgeOptiFine 1.6.4\natives" + "\"" + @" -cp " + "\"" + @"%appdata%\.minecraft\libraries\optifine\OptiFine\1.6.4_HD_U_D1\optifine-1.6.4_HD_U_D1.jar;%appdata%\.minecraft\libraries\net\minecraftforge\minecraftforge\9.11.1.1345\minecraftforge-9.11.1.1345.jar;%appdata%\.minecraft\libraries\net\minecraft\launchwrapper\1.8\launchwrapper-1.8.jar;%appdata%\.minecraft\libraries\org\ow2\asm\asm-all\4.1\asm-all-4.1.jar;%appdata%\.minecraft\libraries\org\scala-lang\scala-library\2.10.2\scala-library-2.10.2.jar;%appdata%\.minecraft\libraries\org\scala-lang\scala-compiler\2.10.2\scala-compiler-2.10.2.jar;%appdata%\.minecraft\libraries\lzma\lzma\0.0.1\lzma-0.0.1.jar;%appdata%\.minecraft\libraries\net\sf\jopt-simple\jopt-simple\4.5\jopt-simple-4.5.jar;%appdata%\.minecraft\libraries\com\paulscode\codecjorbis\20101023\codecjorbis-20101023.jar;%appdata%\.minecraft\libraries\com\paulscode\codecwav\20101023\codecwav-20101023.jar;%appdata%\.minecraft\libraries\com\paulscode\libraryjavasound\20101123\libraryjavasound-20101123.jar;%appdata%\.minecraft\libraries\com\paulscode\librarylwjglopenal\20100824\librarylwjglopenal-20100824.jar;%appdata%\.minecraft\libraries\com\paulscode\soundsystem\20120107\soundsystem-20120107.jar;%appdata%\.minecraft\libraries\argo\argo\2.25_fixed\argo-2.25_fixed.jar;%appdata%\.minecraft\libraries\org\bouncycastle\bcprov-jdk15on\1.47\bcprov-jdk15on-1.47.jar;%appdata%\.minecraft\libraries\com\google\guava\guava\14.0\guava-14.0.jar;%appdata%\.minecraft\libraries\org\apache\commons\commons-lang3\3.1\commons-lang3-3.1.jar;%appdata%\.minecraft\libraries\commons-io\commons-io\2.4\commons-io-2.4.jar;%appdata%\.minecraft\libraries\net\java\jinput\jinput\2.0.5\jinput-2.0.5.jar;%appdata%\.minecraft\libraries\net\java\jutils\jutils\1.0.0\jutils-1.0.0.jar;%appdata%\.minecraft\libraries\com\google\code\gson\gson\2.2.2\gson-2.2.2.jar;%appdata%\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl\2.9.0\lwjgl-2.9.0.jar;%appdata%\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl_util\2.9.0\lwjgl_util-2.9.0.jar;%appdata%\.minecraft\versions\ForgeOptiFine 1.6.4\ForgeOptiFine 1.6.4.jar" + "\"" + @" -Dfml.ignoreInvalidMinecraftCertificates=true -Dfml.ignorePatchDiscrepancies=true net.minecraft.launchwrapper.Launch --username " + "\"" + textBox2.Text + "\"" + @" --session " + "\"" + @"5555" + "\"" + @" --version " + "\"" + @"OptifIne" + "\"" + @" --gameDir " + "\"" + @"%appdata%\.minecraft" + "\"" + @" --assetsDir " + "\"" + @"%appdata%\.minecraft\assets\virtual\legacy" + "\"" + @" --tweakClass cpw.mods.fml.common.launcher.FMLTweaker --server " + IP);
+            Process.Start("javaw", @" -Xmx" + mem + "M  -Djava.library.path=" + "\"" + @"%appdata%\.minecraft\versions\ForgeOptiFine 1.6.4\natives" + "\"" + @" -cp " + "\"" + @"%appdata%\.minecraft\libraries\optifine\OptiFine\1.6.4_HD_U_D1\optifine-1.6.4_HD_U_D1.jar;%appdata%\.minecraft\libraries\net\minecraftforge\minecraftforge\9.11.1.1345\minecraftforge-9.11.1.1345.jar;%appdata%\.minecraft\libraries\net\minecraft\launchwrapper\1.8\launchwrapper-1.8.jar;%appdata%\.minecraft\libraries\org\ow2\asm\asm-all\4.1\asm-all-4.1.jar;%appdata%\.minecraft\libraries\org\scala-lang\scala-library\2.10.2\scala-library-2.10.2.jar;%appdata%\.minecraft\libraries\org\scala-lang\scala-compiler\2.10.2\scala-compiler-2.10.2.jar;%appdata%\.minecraft\libraries\lzma\lzma\0.0.1\lzma-0.0.1.jar;%appdata%\.minecraft\libraries\net\sf\jopt-simple\jopt-simple\4.5\jopt-simple-4.5.jar;%appdata%\.minecraft\libraries\com\paulscode\codecjorbis\20101023\codecjorbis-20101023.jar;%appdata%\.minecraft\libraries\com\paulscode\codecwav\20101023\codecwav-20101023.jar;%appdata%\.minecraft\libraries\com\paulscode\libraryjavasound\20101123\libraryjavasound-20101123.jar;%appdata%\.minecraft\libraries\com\paulscode\librarylwjglopenal\20100824\librarylwjglopenal-20100824.jar;%appdata%\.minecraft\libraries\com\paulscode\soundsystem\20120107\soundsystem-20120107.jar;%appdata%\.minecraft\libraries\argo\argo\2.25_fixed\argo-2.25_fixed.jar;%appdata%\.minecraft\libraries\org\bouncycastle\bcprov-jdk15on\1.47\bcprov-jdk15on-1.47.jar;%appdata%\.minecraft\libraries\com\google\guava\guava\14.0\guava-14.0.jar;%appdata%\.minecraft\libraries\org\apache\commons\commons-lang3\3.1\commons-lang3-3.1.jar;%appdata%\.minecraft\libraries\commons-io\commons-io\2.4\commons-io-2.4.jar;%appdata%\.minecraft\libraries\net\java\jinput\jinput\2.0.5\jinput-2.0.5.jar;%appdata%\.minecraft\libraries\net\java\jutils\jutils\1.0.0\jutils-1.0.0.jar;%appdata%\.minecraft\libraries\com\google\code\gson\gson\2.2.2\gson-2.2.2.jar;%appdata%\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl\2.9.0\lwjgl-2.9.0.jar;%appdata%\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl_util\2.9.0\lwjgl_util-2.9.0.jar;%appdata%\.minecraft\versions\ForgeOptiFine 1.6.4\ForgeOptiFine 1.6.4.jar" + "\"" + @" -Dfml.ignoreInvalidMinecraftCertificates=true -Dfml.ignorePatchDiscrepancies=true net.minecraft.launchwrapper.Launch --username " + "\"" + textBox2.Text + "\"" + @" --session " + "\"" + @"5555" + "\"" + @" --version " + "\"" + @"OptifIne" + "\"" + @" --gameDir " + "\"" + @"%appdata%\.minecraft" + "\"" + @" --assetsDir " + "\"" + @"%appdata%\.minecraft\assets\virtual\legacy" + "\"" + @" --tweakClass cpw.mods.fml.common.launcher.FMLTweaker --server " + ip);
 
             progressBar1.Value = 190;
             progressBar1.Visible = false;
             if (IsRunning()) this.Hide();
             timer1.Enabled = true;
         }
+
         bool login;
         private void textBox2_MouseClick(object sender, MouseEventArgs e)
         {
@@ -473,11 +408,6 @@ namespace WindowsFormsApplication2
                 login = true;
                 textBox2.Text = "";
             }
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox2_MouseEnter(object sender, EventArgs e)
@@ -522,11 +452,6 @@ namespace WindowsFormsApplication2
         private void pictureBox3_MouseLeave(object sender, EventArgs e)
         {
             pictureBox3.Image = Properties.Resources.exit1;
-        }
-
-        private void Form1_MouseLeave(object sender, EventArgs e)
-        {
-
         }
     }
 }

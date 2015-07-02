@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication2
 {
     public partial class Form2 : Form
     {
-        public int mem;
+        public int memory;
 
         public Form2()
         {
@@ -26,44 +19,10 @@ namespace WindowsFormsApplication2
             this.WndProc(ref m);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_Click(object sender, EventArgs e)
         {
-            this.Hide();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            mem = 2048;
-            this.Hide();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            mem = 512;
-            this.Hide();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            mem = 1024;
-            this.Hide();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            mem = 3072;
-            this.Hide();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            mem = 4096;
-            this.Hide();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            mem = 6144;
+            Button memoryButton = (Button)sender;
+            memory = Convert.ToInt32(memoryButton.Text);
             this.Hide();
         }
 
