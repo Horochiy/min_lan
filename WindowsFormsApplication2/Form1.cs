@@ -12,6 +12,7 @@ namespace WindowsFormsApplication2
 {
     public partial class Form1 : Form
     {
+        
         [DllImport("gdi32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern int removeFontResourceEx(string lpszFilename, int fl, IntPtr pdv);
         static string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
