@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication2", "WindowsFormsApplication2\WindowsFormsApplication2.csproj", "{5B208B2E-838E-425D-81FE-414B864886FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "min_lan", "min_lan\min_lan.csproj", "{5B208B2E-838E-425D-81FE-414B864886FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
