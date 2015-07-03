@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace min_lan
 {
     partial class Form2
     {
@@ -132,7 +132,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::WindowsFormsApplication2.Properties.Resources.exit1;
+            this.pictureBox1.Image = global::min_lan.Properties.Resources.exit1;
             this.pictureBox1.Location = new System.Drawing.Point(774, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(41, 23);

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace min_lan
 {
     partial class Form1
     {
@@ -149,7 +149,7 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Image = global::WindowsFormsApplication2.Properties.Resources.neo3;
+            this.pictureBox5.Image = global::min_lan.Properties.Resources.neo3;
             this.pictureBox5.Location = new System.Drawing.Point(634, 476);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(37, 37);
@@ -161,7 +161,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::WindowsFormsApplication2.Properties.Resources.exit1;
+            this.pictureBox3.Image = global::min_lan.Properties.Resources.exit1;
             this.pictureBox3.Location = new System.Drawing.Point(921, 13);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(41, 23);
@@ -175,7 +175,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Image = global::WindowsFormsApplication2.Properties.Resources.neo;
+            this.pictureBox2.Image = global::min_lan.Properties.Resources.neo;
             this.pictureBox2.Location = new System.Drawing.Point(874, 13);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(41, 23);
