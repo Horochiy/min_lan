@@ -33,17 +33,18 @@
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.loginBox = new System.Windows.Forms.TextBox();
             this.serverBox = new System.Windows.Forms.ComboBox();
-            this.serverLabel = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.loadBar = new System.Windows.Forms.ProgressBar();
             this.startButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.serverPicture = new System.Windows.Forms.PictureBox();
             this.passwordPicture = new System.Windows.Forms.PictureBox();
             this.loginPicture = new System.Windows.Forms.PictureBox();
             this.internetButton = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.minimizeButton = new System.Windows.Forms.PictureBox();
             this.settingsButton = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.serverPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.internetButton)).BeginInit();
@@ -59,7 +60,7 @@
             this.passwordBox.Location = new System.Drawing.Point(320, 470);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
-            this.passwordBox.Size = new System.Drawing.Size(175, 30);
+            this.passwordBox.Size = new System.Drawing.Size(194, 30);
             this.passwordBox.TabIndex = 1;
             this.passwordBox.Text = "Пароль";
             this.passwordBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -68,13 +69,13 @@
             // 
             this.loginBox.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.loginBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.loginBox.Location = new System.Drawing.Point(48, 471);
+            this.loginBox.Location = new System.Drawing.Point(48, 470);
             this.loginBox.Name = "loginBox";
             this.loginBox.Size = new System.Drawing.Size(194, 30);
             this.loginBox.TabIndex = 0;
             this.loginBox.Text = "Логин";
             this.loginBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.loginBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
+            this.loginBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.loginBox_MouseClick);
             // 
             // serverBox
             // 
@@ -85,25 +86,13 @@
             this.serverBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.serverBox.FormattingEnabled = true;
             this.serverBox.Items.AddRange(new object[] {
-            "Server",
-            "Test",
-            "D.E.M.E.N.T.I.A."});
-            this.serverBox.Location = new System.Drawing.Point(12, 12);
+            "Cервер",
+            "D.E.M.E.N.T.I.A.",
+            "Test"});
+            this.serverBox.Location = new System.Drawing.Point(48, 12);
             this.serverBox.Name = "serverBox";
-            this.serverBox.Size = new System.Drawing.Size(207, 30);
+            this.serverBox.Size = new System.Drawing.Size(194, 30);
             this.serverBox.TabIndex = 3;
-            // 
-            // serverLabel
-            // 
-            this.serverLabel.AutoSize = true;
-            this.serverLabel.BackColor = System.Drawing.Color.Transparent;
-            this.serverLabel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.serverLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.serverLabel.Location = new System.Drawing.Point(225, 15);
-            this.serverLabel.Name = "serverLabel";
-            this.serverLabel.Size = new System.Drawing.Size(140, 22);
-            this.serverLabel.TabIndex = 7;
-            this.serverLabel.Text = "Выбор сервера";
             // 
             // webBrowser1
             // 
@@ -136,18 +125,28 @@
             this.startButton.TabIndex = 2;
             this.startButton.Text = "Войти";
             this.startButton.UseVisualStyleBackColor = false;
-            this.startButton.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // timer1
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // serverPicture
+            // 
+            this.serverPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.serverPicture.Image = global::min_lan.Properties.Resources.server;
+            this.serverPicture.Location = new System.Drawing.Point(12, 12);
+            this.serverPicture.Name = "serverPicture";
+            this.serverPicture.Size = new System.Drawing.Size(30, 30);
+            this.serverPicture.TabIndex = 20;
+            this.serverPicture.TabStop = false;
+            // 
             // passwordPicture
             // 
             this.passwordPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.passwordPicture.Image = global::min_lan.Properties.Resources.password;
-            this.passwordPicture.Location = new System.Drawing.Point(284, 471);
+            this.passwordPicture.Location = new System.Drawing.Point(284, 470);
             this.passwordPicture.Name = "passwordPicture";
             this.passwordPicture.Size = new System.Drawing.Size(30, 30);
             this.passwordPicture.TabIndex = 19;
@@ -172,9 +171,9 @@
             this.internetButton.Size = new System.Drawing.Size(30, 30);
             this.internetButton.TabIndex = 17;
             this.internetButton.TabStop = false;
-            this.internetButton.Click += new System.EventHandler(this.pictureBox5_Click);
-            this.internetButton.MouseEnter += new System.EventHandler(this.pictureBox5_MouseEnter);
-            this.internetButton.MouseLeave += new System.EventHandler(this.pictureBox5_MouseLeave);
+            this.internetButton.Click += new System.EventHandler(this.internetButton_Click);
+            this.internetButton.MouseEnter += new System.EventHandler(this.internetButton_MouseEnter);
+            this.internetButton.MouseLeave += new System.EventHandler(this.internetButton_MouseLeave);
             // 
             // closeButton
             // 
@@ -184,9 +183,9 @@
             this.closeButton.Size = new System.Drawing.Size(46, 30);
             this.closeButton.TabIndex = 15;
             this.closeButton.TabStop = false;
-            this.closeButton.Click += new System.EventHandler(this.pictureBox3_Click);
-            this.closeButton.MouseEnter += new System.EventHandler(this.pictureBox3_MouseEnter);
-            this.closeButton.MouseLeave += new System.EventHandler(this.pictureBox3_MouseLeave);
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            this.closeButton.MouseEnter += new System.EventHandler(this.closeButton_MouseEnter);
+            this.closeButton.MouseLeave += new System.EventHandler(this.closeButton_MouseLeave);
             // 
             // minimizeButton
             // 
@@ -197,22 +196,22 @@
             this.minimizeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.minimizeButton.TabIndex = 14;
             this.minimizeButton.TabStop = false;
-            this.minimizeButton.Click += new System.EventHandler(this.pictureBox2_Click);
-            this.minimizeButton.MouseEnter += new System.EventHandler(this.minimizeBox_MouseEnter);
-            this.minimizeButton.MouseLeave += new System.EventHandler(this.minimizeBox_MouseLeave);
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            this.minimizeButton.MouseEnter += new System.EventHandler(this.minimizeButton_MouseEnter);
+            this.minimizeButton.MouseLeave += new System.EventHandler(this.minimizeButton_MouseLeave);
             // 
             // settingsButton
             // 
             this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.settingsButton.Image = global::min_lan.Properties.Resources.settings;
-            this.settingsButton.Location = new System.Drawing.Point(550, 471);
+            this.settingsButton.Location = new System.Drawing.Point(550, 470);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(30, 30);
             this.settingsButton.TabIndex = 13;
             this.settingsButton.TabStop = false;
-            this.settingsButton.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.settingsButton.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.settingsButton.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            this.settingsButton.MouseEnter += new System.EventHandler(this.settingsButton_MouseEnter);
+            this.settingsButton.MouseLeave += new System.EventHandler(this.settingsButton_MouseLeave);
             // 
             // Form1
             // 
@@ -220,6 +219,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.ClientSize = new System.Drawing.Size(828, 512);
+            this.Controls.Add(this.serverPicture);
             this.Controls.Add(this.passwordPicture);
             this.Controls.Add(this.loginPicture);
             this.Controls.Add(this.startButton);
@@ -229,7 +229,6 @@
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.loadBar);
             this.Controls.Add(this.webBrowser1);
-            this.Controls.Add(this.serverLabel);
             this.Controls.Add(this.serverBox);
             this.Controls.Add(this.loginBox);
             this.Controls.Add(this.passwordBox);
@@ -240,6 +239,7 @@
             this.Text = "D.E.M.E.N.T.I.A.";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveVindow);
+            ((System.ComponentModel.ISupportInitialize)(this.serverPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.internetButton)).EndInit();
@@ -256,7 +256,6 @@
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.TextBox loginBox;
         private System.Windows.Forms.ComboBox serverBox;
-        private System.Windows.Forms.Label serverLabel;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ProgressBar loadBar;
         private System.Windows.Forms.PictureBox settingsButton;
@@ -267,6 +266,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox loginPicture;
         private System.Windows.Forms.PictureBox passwordPicture;
+        private System.Windows.Forms.PictureBox serverPicture;
     }
 }
 

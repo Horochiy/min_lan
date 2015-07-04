@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_small.ico" />
+    <None Include="Resources\server.png" />
     <None Include="Resources\password.png" />
     <None Include="Resources\login.png" />
     <None Include="Resources\settings_alt.png" />

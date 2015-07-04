@@ -320,6 +320,7 @@ namespace min_lan
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            serverBox.SelectedIndex = 0;
             checkfile(@"http://getfile.esy.es/minecraft/creep2.ttf", appData + "\\" + game + "\\" + "creep2.ttf");
             var pfc = new PrivateFontCollection();
             pfc.AddFontFile(appData + "\\" + game + "\\" + "creep2.ttf");
@@ -343,27 +344,27 @@ namespace min_lan
             Process.Start("http://");
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void settingsButton_Click(object sender, EventArgs e)
         {
             secondForm.Show();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void closeButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
+        private void internetButton_Click(object sender, EventArgs e)
         {
             Process.Start("http://dementia.esy.es/");
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void startButton_Click(object sender, EventArgs e)
         {
             loadBar.Visible = true;
             webBrowser1.Height = 402;
@@ -402,7 +403,7 @@ namespace min_lan
         }
 
         bool login;
-        private void textBox2_MouseClick(object sender, MouseEventArgs e)
+        private void loginBox_MouseClick(object sender, MouseEventArgs e)
         {
             if (!login)
             {
@@ -411,7 +412,7 @@ namespace min_lan
             }
         }
 
-        private void minimizeBox_MouseEnter(object sender, EventArgs e)
+        private void minimizeButton_MouseEnter(object sender, EventArgs e)
         {
             minimizeButton.Image = Properties.Resources.minimize_alt;
         }
@@ -421,7 +422,7 @@ namespace min_lan
             return Process.GetProcessesByName("javaw").Length > 0;
         }
         
-        private void minimizeBox_MouseLeave(object sender, EventArgs e)
+        private void minimizeButton_MouseLeave(object sender, EventArgs e)
         {
             minimizeButton.Image = Properties.Resources.minimize;
         }
@@ -435,32 +436,32 @@ namespace min_lan
             }
         }
 
-        private void pictureBox5_MouseEnter(object sender, EventArgs e)
+        private void internetButton_MouseEnter(object sender, EventArgs e)
         {
             internetButton.Image = Properties.Resources.internet_alt;
         }
 
-        private void pictureBox5_MouseLeave(object sender, EventArgs e)
+        private void internetButton_MouseLeave(object sender, EventArgs e)
         {
             internetButton.Image = Properties.Resources.internet;
         }
 
-        private void pictureBox3_MouseEnter(object sender, EventArgs e)
+        private void closeButton_MouseEnter(object sender, EventArgs e)
         {
             closeButton.Image = Properties.Resources.close_alt;
         }
 
-        private void pictureBox3_MouseLeave(object sender, EventArgs e)
+        private void closeButton_MouseLeave(object sender, EventArgs e)
         {
             closeButton.Image = Properties.Resources.close;
         }
 
-        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        private void settingsButton_MouseEnter(object sender, EventArgs e)
         {
             settingsButton.Image = Properties.Resources.settings_alt;
         }
 
-        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        private void settingsButton_MouseLeave(object sender, EventArgs e)
         {
             settingsButton.Image = Properties.Resources.settings;
         }
