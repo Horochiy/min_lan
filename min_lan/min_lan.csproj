@@ -126,22 +126,8 @@
     <None Include="Resources\internet.png" />
     <None Include="Resources\minimize_alt.png" />
     <None Include="Resources\close_alt.png" />
-    <None Include="Resources\minimize2.png" />
     <None Include="Resources\minimize.png" />
-    <None Include="Resources\maximize2.png" />
-    <None Include="Resources\maximize.png" />
-    <None Include="Resources\close2.png" />
     <None Include="Resources\close.png" />
-    <None Include="Resources\нео1.png" />
-    <None Include="Resources\нео.png" />
-    <None Include="Resources\neo1.png" />
-    <None Include="Resources\neo.png" />
-    <None Include="Resources\neo2.png" />
-    <None Include="Resources\neo3.png" />
-    <None Include="Resources\exit.png" />
-    <None Include="Resources\exit2.png" />
-    <None Include="Resources\exit1.png" />
-    <None Include="Resources\exit3.png" />
     <Content Include="icon_big.ico" />
   </ItemGroup>
   <ItemGroup>
