@@ -18,6 +18,7 @@ namespace min_lan
         static string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         string path = appData + @"\.minecraft\savedata.inc";
         Form2 secondForm = new Form2();
+
         int mem;
         string game = ".minecraft";
         string server = "ForgeOptiFine 1.6.4";
