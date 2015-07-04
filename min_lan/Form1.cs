@@ -115,7 +115,7 @@ namespace min_lan
         private void Completed(object sender, AsyncCompletedEventArgs e)
         {
             if (firstbar > 2)
-                progressBar1.Value = progressBar1.Value + 10;
+                loadBar.Value = loadBar.Value + 10;
             firstbar++;
         }
 
@@ -278,8 +278,8 @@ namespace min_lan
                     lines[i] = Base64Decode(lines[i]);
 
                 int.TryParse(lines[0], out mem);
-                textBox2.Text = lines[1];
-                textBox1.Text = lines[2];
+                loginBox.Text = lines[1];
+                passwordBox.Text = lines[2];
             }
             catch (Exception ex)
             {
@@ -299,11 +299,11 @@ namespace min_lan
 
                 string[] lines = new string[3];
 
-                lines[2] = textBox1.Text;
+                lines[2] = passwordBox.Text;
 
                 lines[0] = Base64Encode(mem.ToString());
-                lines[1] = Base64Encode(textBox2.Text);
-                lines[2] = Base64Encode(textBox1.Text);
+                lines[1] = Base64Encode(loginBox.Text);
+                lines[2] = Base64Encode(passwordBox.Text);
                 System.IO.File.WriteAllLines(path, lines);
             }
             catch (Exception ex)
@@ -323,8 +323,7 @@ namespace min_lan
             checkfile(@"http://getfile.esy.es/minecraft/creep2.ttf", appData + "\\" + game + "\\" + "creep2.ttf");
             var pfc = new PrivateFontCollection();
             pfc.AddFontFile(appData + "\\" + game + "\\" + "creep2.ttf");
-            textBox1.Font = new Font(pfc.Families[0], 16, FontStyle.Regular);
-            comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            passwordBox.Font = new Font(pfc.Families[0], 16, FontStyle.Regular);
             //    checkfile(@"http://getfile.esy.es/minecraft/ForgeOptiFine 1.6.4/ForgeOptiFine 1.6.4.jar", @"C:\Users\vladislav\AppData\Roaming\.minecraft\versions\ForgeOptiFine 1.6.4\ForgeOptiFine 1.6.4.jar");
             //    checkfile(@"http://getfile.esy.es/minecraft/ForgeOptiFine 1.6.4/ForgeOptiFine 1.6.4.jar", @"%appdata%\.minecraft\versions\ForgeOptiFine 1.6.4\ForgeOptiFine 1.6.4.jar");
 
@@ -366,11 +365,12 @@ namespace min_lan
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            progressBar1.Visible = true;
+            loadBar.Visible = true;
+            webBrowser1.Height = 402;
             string way = "%appdata%\\" + game + "\\";
             WriteFile();
-            progressBar1.Value = 0;
-            progressBar1.Maximum = 190;
+            loadBar.Value = 0;
+            loadBar.Maximum = 190;
             //проверка файлов
             lib("jopt-simple-4.5");
             lib("codecjorbis-20101023");
@@ -393,10 +393,10 @@ namespace min_lan
             natives("lwjgl-platform-2.9.0-natives-windows", way + "versions\\1.6.4\\natives");
             string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-            Process.Start("javaw", @" -Xmx" + mem + "M  -Djava.library.path=" + "\"" + @"%appdata%\.minecraft\versions\ForgeOptiFine 1.6.4\natives" + "\"" + @" -cp " + "\"" + @"%appdata%\.minecraft\libraries\optifine\OptiFine\1.6.4_HD_U_D1\optifine-1.6.4_HD_U_D1.jar;%appdata%\.minecraft\libraries\net\minecraftforge\minecraftforge\9.11.1.1345\minecraftforge-9.11.1.1345.jar;%appdata%\.minecraft\libraries\net\minecraft\launchwrapper\1.8\launchwrapper-1.8.jar;%appdata%\.minecraft\libraries\org\ow2\asm\asm-all\4.1\asm-all-4.1.jar;%appdata%\.minecraft\libraries\org\scala-lang\scala-library\2.10.2\scala-library-2.10.2.jar;%appdata%\.minecraft\libraries\org\scala-lang\scala-compiler\2.10.2\scala-compiler-2.10.2.jar;%appdata%\.minecraft\libraries\lzma\lzma\0.0.1\lzma-0.0.1.jar;%appdata%\.minecraft\libraries\net\sf\jopt-simple\jopt-simple\4.5\jopt-simple-4.5.jar;%appdata%\.minecraft\libraries\com\paulscode\codecjorbis\20101023\codecjorbis-20101023.jar;%appdata%\.minecraft\libraries\com\paulscode\codecwav\20101023\codecwav-20101023.jar;%appdata%\.minecraft\libraries\com\paulscode\libraryjavasound\20101123\libraryjavasound-20101123.jar;%appdata%\.minecraft\libraries\com\paulscode\librarylwjglopenal\20100824\librarylwjglopenal-20100824.jar;%appdata%\.minecraft\libraries\com\paulscode\soundsystem\20120107\soundsystem-20120107.jar;%appdata%\.minecraft\libraries\argo\argo\2.25_fixed\argo-2.25_fixed.jar;%appdata%\.minecraft\libraries\org\bouncycastle\bcprov-jdk15on\1.47\bcprov-jdk15on-1.47.jar;%appdata%\.minecraft\libraries\com\google\guava\guava\14.0\guava-14.0.jar;%appdata%\.minecraft\libraries\org\apache\commons\commons-lang3\3.1\commons-lang3-3.1.jar;%appdata%\.minecraft\libraries\commons-io\commons-io\2.4\commons-io-2.4.jar;%appdata%\.minecraft\libraries\net\java\jinput\jinput\2.0.5\jinput-2.0.5.jar;%appdata%\.minecraft\libraries\net\java\jutils\jutils\1.0.0\jutils-1.0.0.jar;%appdata%\.minecraft\libraries\com\google\code\gson\gson\2.2.2\gson-2.2.2.jar;%appdata%\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl\2.9.0\lwjgl-2.9.0.jar;%appdata%\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl_util\2.9.0\lwjgl_util-2.9.0.jar;%appdata%\.minecraft\versions\ForgeOptiFine 1.6.4\ForgeOptiFine 1.6.4.jar" + "\"" + @" -Dfml.ignoreInvalidMinecraftCertificates=true -Dfml.ignorePatchDiscrepancies=true net.minecraft.launchwrapper.Launch --username " + "\"" + textBox2.Text + "\"" + @" --session " + "\"" + @"5555" + "\"" + @" --version " + "\"" + @"OptifIne" + "\"" + @" --gameDir " + "\"" + @"%appdata%\.minecraft" + "\"" + @" --assetsDir " + "\"" + @"%appdata%\.minecraft\assets\virtual\legacy" + "\"" + @" --tweakClass cpw.mods.fml.common.launcher.FMLTweaker --server " + ip);
+            Process.Start("javaw", @" -Xmx" + mem + "M  -Djava.library.path=" + "\"" + @"%appdata%\.minecraft\versions\ForgeOptiFine 1.6.4\natives" + "\"" + @" -cp " + "\"" + @"%appdata%\.minecraft\libraries\optifine\OptiFine\1.6.4_HD_U_D1\optifine-1.6.4_HD_U_D1.jar;%appdata%\.minecraft\libraries\net\minecraftforge\minecraftforge\9.11.1.1345\minecraftforge-9.11.1.1345.jar;%appdata%\.minecraft\libraries\net\minecraft\launchwrapper\1.8\launchwrapper-1.8.jar;%appdata%\.minecraft\libraries\org\ow2\asm\asm-all\4.1\asm-all-4.1.jar;%appdata%\.minecraft\libraries\org\scala-lang\scala-library\2.10.2\scala-library-2.10.2.jar;%appdata%\.minecraft\libraries\org\scala-lang\scala-compiler\2.10.2\scala-compiler-2.10.2.jar;%appdata%\.minecraft\libraries\lzma\lzma\0.0.1\lzma-0.0.1.jar;%appdata%\.minecraft\libraries\net\sf\jopt-simple\jopt-simple\4.5\jopt-simple-4.5.jar;%appdata%\.minecraft\libraries\com\paulscode\codecjorbis\20101023\codecjorbis-20101023.jar;%appdata%\.minecraft\libraries\com\paulscode\codecwav\20101023\codecwav-20101023.jar;%appdata%\.minecraft\libraries\com\paulscode\libraryjavasound\20101123\libraryjavasound-20101123.jar;%appdata%\.minecraft\libraries\com\paulscode\librarylwjglopenal\20100824\librarylwjglopenal-20100824.jar;%appdata%\.minecraft\libraries\com\paulscode\soundsystem\20120107\soundsystem-20120107.jar;%appdata%\.minecraft\libraries\argo\argo\2.25_fixed\argo-2.25_fixed.jar;%appdata%\.minecraft\libraries\org\bouncycastle\bcprov-jdk15on\1.47\bcprov-jdk15on-1.47.jar;%appdata%\.minecraft\libraries\com\google\guava\guava\14.0\guava-14.0.jar;%appdata%\.minecraft\libraries\org\apache\commons\commons-lang3\3.1\commons-lang3-3.1.jar;%appdata%\.minecraft\libraries\commons-io\commons-io\2.4\commons-io-2.4.jar;%appdata%\.minecraft\libraries\net\java\jinput\jinput\2.0.5\jinput-2.0.5.jar;%appdata%\.minecraft\libraries\net\java\jutils\jutils\1.0.0\jutils-1.0.0.jar;%appdata%\.minecraft\libraries\com\google\code\gson\gson\2.2.2\gson-2.2.2.jar;%appdata%\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl\2.9.0\lwjgl-2.9.0.jar;%appdata%\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl_util\2.9.0\lwjgl_util-2.9.0.jar;%appdata%\.minecraft\versions\ForgeOptiFine 1.6.4\ForgeOptiFine 1.6.4.jar" + "\"" + @" -Dfml.ignoreInvalidMinecraftCertificates=true -Dfml.ignorePatchDiscrepancies=true net.minecraft.launchwrapper.Launch --username " + "\"" + loginBox.Text + "\"" + @" --session " + "\"" + @"5555" + "\"" + @" --version " + "\"" + @"OptifIne" + "\"" + @" --gameDir " + "\"" + @"%appdata%\.minecraft" + "\"" + @" --assetsDir " + "\"" + @"%appdata%\.minecraft\assets\virtual\legacy" + "\"" + @" --tweakClass cpw.mods.fml.common.launcher.FMLTweaker --server " + ip);
 
-            progressBar1.Value = 190;
-            progressBar1.Visible = false;
+            loadBar.Value = 190;
+            loadBar.Visible = false;
             if (IsRunning()) this.Hide();
             timer1.Enabled = true;
         }
@@ -407,13 +407,13 @@ namespace min_lan
             if (!login)
             {
                 login = true;
-                textBox2.Text = "";
+                loginBox.Text = "";
             }
         }
 
-        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        private void minimizeBox_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox2.Image = Properties.Resources.neo1;
+            minimizeButton.Image = Properties.Resources.minimize_alt;
         }
 
         private bool IsRunning()
@@ -421,9 +421,9 @@ namespace min_lan
             return Process.GetProcessesByName("javaw").Length > 0;
         }
         
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        private void minimizeBox_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox2.Image = Properties.Resources.neo;
+            minimizeButton.Image = Properties.Resources.minimize;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -437,22 +437,32 @@ namespace min_lan
 
         private void pictureBox5_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox5.Image = Properties.Resources.neo2;
+            internetButton.Image = Properties.Resources.internet_alt;
         }
 
         private void pictureBox5_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox5.Image = Properties.Resources.neo3;
+            internetButton.Image = Properties.Resources.internet;
         }
 
         private void pictureBox3_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox3.Image = Properties.Resources.exit3;
+            closeButton.Image = Properties.Resources.close_alt;
         }
 
         private void pictureBox3_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox3.Image = Properties.Resources.exit1;
+            closeButton.Image = Properties.Resources.close;
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            settingsButton.Image = Properties.Resources.settings_alt;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            settingsButton.Image = Properties.Resources.settings;
         }
     }
 }

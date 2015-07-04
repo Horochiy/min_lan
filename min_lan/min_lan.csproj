@@ -47,7 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Безназвания - 2.ico</ApplicationIcon>
+    <ApplicationIcon>icon_big.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -84,18 +84,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -117,7 +117,21 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1.ico" />
+    <Content Include="icon_small.ico" />
+    <None Include="Resources\password.png" />
+    <None Include="Resources\login.png" />
+    <None Include="Resources\settings_alt.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\internet_alt.png" />
+    <None Include="Resources\internet.png" />
+    <None Include="Resources\minimize_alt.png" />
+    <None Include="Resources\close_alt.png" />
+    <None Include="Resources\minimize2.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\maximize2.png" />
+    <None Include="Resources\maximize.png" />
+    <None Include="Resources\close2.png" />
+    <None Include="Resources\close.png" />
     <None Include="Resources\нео1.png" />
     <None Include="Resources\нео.png" />
     <None Include="Resources\neo1.png" />
@@ -128,7 +142,7 @@
     <None Include="Resources\exit2.png" />
     <None Include="Resources\exit1.png" />
     <None Include="Resources\exit3.png" />
-    <Content Include="Безназвания - 2.ico" />
+    <Content Include="icon_big.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

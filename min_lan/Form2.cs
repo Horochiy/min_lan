@@ -33,12 +33,12 @@ namespace min_lan
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox1.Image = Properties.Resources.exit3;
+            closeButton.Image = Properties.Resources.close_alt;
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox1.Image = Properties.Resources.exit1;
+            closeButton.Image = Properties.Resources.close;
         }
     }
 }

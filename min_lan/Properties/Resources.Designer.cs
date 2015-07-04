@@ -63,9 +63,9 @@ namespace min_lan.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap exit {
+        internal static System.Drawing.Bitmap close {
             get {
-                object obj = ResourceManager.GetObject("exit", resourceCulture);
+                object obj = ResourceManager.GetObject("close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace min_lan.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap exit1 {
+        internal static System.Drawing.Bitmap close_alt {
             get {
-                object obj = ResourceManager.GetObject("exit1", resourceCulture);
+                object obj = ResourceManager.GetObject("close_alt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace min_lan.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap exit2 {
+        internal static System.Drawing.Bitmap internet {
             get {
-                object obj = ResourceManager.GetObject("exit2", resourceCulture);
+                object obj = ResourceManager.GetObject("internet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace min_lan.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap exit3 {
+        internal static System.Drawing.Bitmap internet_alt {
             get {
-                object obj = ResourceManager.GetObject("exit3", resourceCulture);
+                object obj = ResourceManager.GetObject("internet_alt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace min_lan.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap neo {
+        internal static System.Drawing.Bitmap login {
             get {
-                object obj = ResourceManager.GetObject("neo", resourceCulture);
+                object obj = ResourceManager.GetObject("login", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace min_lan.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap neo1 {
+        internal static System.Drawing.Bitmap minimize {
             get {
-                object obj = ResourceManager.GetObject("neo1", resourceCulture);
+                object obj = ResourceManager.GetObject("minimize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace min_lan.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap neo2 {
+        internal static System.Drawing.Bitmap minimize_alt {
             get {
-                object obj = ResourceManager.GetObject("neo2", resourceCulture);
+                object obj = ResourceManager.GetObject("minimize_alt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace min_lan.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap neo3 {
+        internal static System.Drawing.Bitmap password {
             get {
-                object obj = ResourceManager.GetObject("neo3", resourceCulture);
+                object obj = ResourceManager.GetObject("password", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace min_lan.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap нео {
+        internal static System.Drawing.Bitmap settings {
             get {
-                object obj = ResourceManager.GetObject("нео", resourceCulture);
+                object obj = ResourceManager.GetObject("settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace min_lan.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap нео1 {
+        internal static System.Drawing.Bitmap settings_alt {
             get {
-                object obj = ResourceManager.GetObject("нео1", resourceCulture);
+                object obj = ResourceManager.GetObject("settings_alt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
