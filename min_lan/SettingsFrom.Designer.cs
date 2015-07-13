@@ -1,6 +1,6 @@
 ﻿namespace min_lan
 {
-    partial class Form2
+    partial class SettingsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.memoryLabel = new System.Windows.Forms.Label();
             this.button512 = new System.Windows.Forms.Button();
             this.button1024 = new System.Windows.Forms.Button();
@@ -144,11 +144,11 @@
             this.closeButton.Size = new System.Drawing.Size(46, 30);
             this.closeButton.TabIndex = 14;
             this.closeButton.TabStop = false;
-            this.closeButton.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.closeButton.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.closeButton.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            this.closeButton.MouseEnter += new System.EventHandler(this.closeButton_MouseEnter);
+            this.closeButton.MouseLeave += new System.EventHandler(this.closeButton_MouseLeave);
             // 
-            // Form2
+            // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -164,7 +164,7 @@
             this.Controls.Add(this.memoryLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form2";
+            this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Память";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveVindow);

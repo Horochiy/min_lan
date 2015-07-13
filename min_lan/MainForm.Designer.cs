@@ -1,6 +1,6 @@
 ﻿namespace min_lan
 {
-    partial class Form1
+    partial class MainFrom
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrom));
             this.passwordBox = new System.Windows.Forms.TextBox();
-            this.loginBox = new System.Windows.Forms.TextBox();
+            this.usernameBox = new System.Windows.Forms.TextBox();
             this.serverBox = new System.Windows.Forms.ComboBox();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.loadBar = new System.Windows.Forms.ProgressBar();
             this.startButton = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.serverPicture = new System.Windows.Forms.PictureBox();
             this.passwordPicture = new System.Windows.Forms.PictureBox();
             this.loginPicture = new System.Windows.Forms.PictureBox();
@@ -44,6 +44,7 @@
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.minimizeButton = new System.Windows.Forms.PictureBox();
             this.settingsButton = new System.Windows.Forms.PictureBox();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.serverPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginPicture)).BeginInit();
@@ -64,18 +65,19 @@
             this.passwordBox.TabIndex = 1;
             this.passwordBox.Text = "Пароль";
             this.passwordBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.passwordBox.Click += new System.EventHandler(this.passwordBox_Click);
             // 
-            // loginBox
+            // usernameBox
             // 
-            this.loginBox.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.loginBox.Location = new System.Drawing.Point(48, 470);
-            this.loginBox.Name = "loginBox";
-            this.loginBox.Size = new System.Drawing.Size(194, 30);
-            this.loginBox.TabIndex = 0;
-            this.loginBox.Text = "Логин";
-            this.loginBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.loginBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.loginBox_MouseClick);
+            this.usernameBox.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.usernameBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.usernameBox.Location = new System.Drawing.Point(48, 470);
+            this.usernameBox.Name = "usernameBox";
+            this.usernameBox.Size = new System.Drawing.Size(194, 30);
+            this.usernameBox.TabIndex = 0;
+            this.usernameBox.Text = "Логин";
+            this.usernameBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usernameBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.usernameBox_MouseClick);
             // 
             // serverBox
             // 
@@ -86,7 +88,6 @@
             this.serverBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.serverBox.FormattingEnabled = true;
             this.serverBox.Items.AddRange(new object[] {
-            "Cервер",
             "D.E.M.E.N.T.I.A.",
             "Test"});
             this.serverBox.Location = new System.Drawing.Point(48, 12);
@@ -94,21 +95,24 @@
             this.serverBox.Size = new System.Drawing.Size(194, 30);
             this.serverBox.TabIndex = 3;
             // 
-            // webBrowser1
+            // webBrowser
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(0, 42);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(828, 422);
-            this.webBrowser1.TabIndex = 4;
+            this.webBrowser.Location = new System.Drawing.Point(0, 42);
+            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser.Name = "webBrowser";
+            this.webBrowser.ScriptErrorsSuppressed = true;
+            this.webBrowser.Size = new System.Drawing.Size(828, 422);
+            this.webBrowser.TabIndex = 4;
+            this.webBrowser.Url = new System.Uri("http://dementia.esy.es/", System.UriKind.Absolute);
             // 
             // loadBar
             // 
             this.loadBar.BackColor = System.Drawing.SystemColors.Window;
             this.loadBar.Location = new System.Drawing.Point(0, 434);
+            this.loadBar.Maximum = 22;
             this.loadBar.Name = "loadBar";
             this.loadBar.Size = new System.Drawing.Size(828, 30);
+            this.loadBar.Step = 1;
             this.loadBar.TabIndex = 12;
             this.loadBar.Visible = false;
             // 
@@ -127,10 +131,10 @@
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
-            // timer1
+            // timer
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // serverPicture
             // 
@@ -213,7 +217,15 @@
             this.settingsButton.MouseEnter += new System.EventHandler(this.settingsButton_MouseEnter);
             this.settingsButton.MouseLeave += new System.EventHandler(this.settingsButton_MouseLeave);
             // 
-            // Form1
+            // backgroundWorker
+            // 
+            this.backgroundWorker.WorkerReportsProgress = true;
+            this.backgroundWorker.WorkerSupportsCancellation = true;
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            // 
+            // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -228,13 +240,13 @@
             this.Controls.Add(this.minimizeButton);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.loadBar);
-            this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.webBrowser);
             this.Controls.Add(this.serverBox);
-            this.Controls.Add(this.loginBox);
+            this.Controls.Add(this.usernameBox);
             this.Controls.Add(this.passwordBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "MainFrom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "D.E.M.E.N.T.I.A.";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -254,19 +266,20 @@
         #endregion
 
         private System.Windows.Forms.TextBox passwordBox;
-        private System.Windows.Forms.TextBox loginBox;
+        private System.Windows.Forms.TextBox usernameBox;
         private System.Windows.Forms.ComboBox serverBox;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.WebBrowser webBrowser;
         private System.Windows.Forms.ProgressBar loadBar;
         private System.Windows.Forms.PictureBox settingsButton;
         private System.Windows.Forms.PictureBox minimizeButton;
         private System.Windows.Forms.PictureBox closeButton;
         private System.Windows.Forms.PictureBox internetButton;
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.PictureBox loginPicture;
         private System.Windows.Forms.PictureBox passwordPicture;
         private System.Windows.Forms.PictureBox serverPicture;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
     }
 }
 
