@@ -24,15 +24,15 @@ namespace min_lan
         }
         private void closeButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
         }
 
         // Поддержка перемещения окна
         public void MoveVindow(object sender, MouseEventArgs e)
         {
-            base.Capture = false;
+            Capture = false;
             Message m = Message.Create(base.Handle, 0xa1, new IntPtr(2), IntPtr.Zero);
-            this.WndProc(ref m);
+            WndProc(ref m);
         }
 
         // Универсальный обработчик нажатия на кнопку
@@ -40,7 +40,7 @@ namespace min_lan
         {
             Button memoryButton = (Button)sender;
             memory = memoryButton.Text;
-            this.Hide();
+            Hide();
         }
     }
 }
